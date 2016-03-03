@@ -21,12 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :status %><br>
-    <%= f.text_field :status %>
+    <%= f.select :status, [["Unstarted", "unstarted"],["Started", "started"],["Finished", "finished"]] %>
   </div>
-  <div class="field">
-    <%= f.label :references %><br>
-    <%= f.text_field :references %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
