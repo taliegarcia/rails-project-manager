@@ -5,5 +5,15 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :tasks
 
+  before_destroy :check_task_status
+
+  private
+
+  def check_task_status
+    if tasks.started || tasks.finished
+      self.errors[:base] << "Cannot delete Project while started and finished tasks exist."
+      return false
+    end
+  end
 
 end
