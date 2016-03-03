@@ -3,7 +3,7 @@ class Project < ActiveRecord::Base
   has_many :users, through: :project_users
   has_many :tasks
 
-  accepts_nested_attributes_for :tasks
+  accepts_nested_attributes_for :tasks, allow_destroy: true
 
   before_destroy :check_task_status
 
@@ -14,6 +14,9 @@ class Project < ActiveRecord::Base
       self.errors[:base] << "Cannot delete Project while started and finished tasks exist."
       return false
     end
+  end
+
+  def task_attributes
   end
 
 end

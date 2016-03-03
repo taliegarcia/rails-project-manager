@@ -15,7 +15,25 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+    New Task:
+    <%= f.fields_for :tasks, @project.tasks.new do |task_form| %>
+      <div class="field">
+        <%= task_form.label :name %><br>
+        <%= task_form.text_field :name %>
+      </div>
+      <div class="field">
+        <%= task_form.label :description %><br>
+        <%= task_form.text_area :description %>
+      </div>
+      <div class="field">
+        <%= task_form.label :status %><br>
+        <%= task_form.select :status, [["Unstarted", "unstarted"],["Started", "started"],["Finished", "finished"]] %>
+      </div>
+    <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
