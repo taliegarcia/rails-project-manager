@@ -3,7 +3,7 @@ class CreateProjectUsers < ActiveRecord::Migration
     create_table :project_users do |t|
       t.references :project, index: true
       t.references :user, index: true
-      t.integer :role, default: 1 
+      t.integer :role, default: 1
 
       t.timestamps
     end
@@ -11,7 +11,7 @@ class CreateProjectUsers < ActiveRecord::Migration
 end
 
 
-# same as below: 
+# same as below:
 
 # class CreateProjectUsers < ActiveRecord::Migration
 #   def change
