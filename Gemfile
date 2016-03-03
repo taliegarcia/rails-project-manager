@@ -4,9 +4,11 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.0.0'
+gem 'eventmachine', '~> 1.0.7'
+gem 'json', '~> 1.8.3'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.11'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -62,6 +64,18 @@ gem 'thin'
 
 # use thin webserver
 # gem 'thin'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+  gem 'guard-rspec', require: false
+  gem 'spring-commands-rspec'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+end
+
+group :test do
+  gem 'capybara', '2.4.4'
+end
 
 
 
