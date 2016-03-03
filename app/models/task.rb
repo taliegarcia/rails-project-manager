@@ -5,5 +5,9 @@ class Task < ActiveRecord::Base
   belongs_to :project
   validates :project, presence: true
 
+  scope :unstarted, -> { where(status: 'unstarted') }
+  scope :started, -> { where(status: 'started') }
+  scope :finished, -> { where(status: 'unstarted') }
+
 
 end

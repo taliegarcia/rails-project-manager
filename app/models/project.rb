@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
   private
 
   def check_task_status
-    if tasks.started || tasks.finished
+    if tasks.started.present? || tasks.finished.present?
       self.errors[:base] << "Cannot delete Project while started and finished tasks exist."
       return false
     end
