@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   validates :name, :description, presence: true
 
   belongs_to :project
-  validates :project, presence: true
+  # validates :project, presence: true
 
   scope :unstarted, -> { where(status: 'unstarted') }
   scope :started, -> { where(status: 'started') }
